@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>할 일 목록</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=ABeeZee:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ultra:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=NEXON+Lv2+Gothic:wght@400&display=swap" />
+    <link rel="stylesheet" href="{% static 'css/todo/style.css' %}">
+    <style>
+        /* 이미지 경로 수정 */
+        .notch-1 {
+            background: url("{% static 'img/f9358ade-fc06-47e3-a21a-154850a2cd61.png' %}") no-repeat center;
+            background-size: cover;
+        }
+        .battery {
+            background: url("{% static 'img/40393129-3b18-4179-8243-1ebe13b5f9d0.png' %}") no-repeat center;
+            background-size: 100% 100%;
+        }
+        .wifi {
+            background: url("{% static 'img/9a0d1236-ad68-46e7-b8c9-4b866106a2d5.png' %}") no-repeat center;
+            background-size: 100% 100%;
+        }
+        .cellular-connection {
+            background: url("{% static 'img/50c15209-aa2f-4ea6-b38a-fc300511d350.png' %}") no-repeat center;
+            background-size: 100% 100%;
+        }
+        .sks--oj {
+            background: url("{% static 'img/a080f16701a51e9763f9e13c7b7e09f0a17fd810.png' %}") no-repeat center;
+            background-size: cover;
+        }
+        .rectangle-2 {
+            background: url("{% static 'img/f012b214-dbcf-4461-92cf-5e285f8594cd.png' %}") no-repeat center;
+            background-size: cover;
+        }
+        .rectangle-3 {
+            background: url("{% static 'img/c0eed3c8-53ce-42e8-8b32-009a552ee45f.png' %}") no-repeat center;
+            background-size: cover;
+        }
+        .line {
+            background: url("{% static 'img/2ac4ae67-6297-45fe-890e-b9636c6c45d3.png' %}") no-repeat center;
+            background-size: cover;
+        }
+        .rectangle-8 {
+            background: url("{% static 'img/c3df4c00-d223-477c-82f7-2ee96b594a75.png' %}") no-repeat center;
+            background-size: cover;
+        }
+        .rectangle-9 {
+            background: url("{% static 'img/1879bf57-e9b8-44b1-9b4b-a4905dd22655.png' %}") no-repeat center;
+            background-size: cover;
+        }
+        .line-a {
+            background: url("{% static 'img/eb612d3d-06c7-43df-b2a3-6cea521e95ea.png' %}") no-repeat center;
+            background-size: cover;
+        }
+        .line-b {
+            background: url("{% static 'img/f90055c1-9608-413f-98ed-9d20898c105b.png' %}") no-repeat center;
+            background-size: cover;
+        }
+        .home-icon {
+            background: url("{% static 'img/50861fc5e2701077796603a025040611c2ff5bfe.png' %}") no-repeat center;
+            background-size: cover;
+            cursor: pointer;
+        }
+        .chart {
+            background: url("{% static 'img/0cccf815bfede24e421667b6882039b0afca9793.png' %}") no-repeat center;
+            background-size: cover;
+            cursor: pointer;
+        }
+        .strategic-plan {
+            background: url("{% static 'img/9370df99ff8609a0e6c544d2b605213759de7bbf.png' %}") no-repeat center;
+            background-size: cover;
+            cursor: pointer;
+        }
+        .checklist {
+            background: url("{% static 'img/560e504afb082b84464c704bcdf91fcda7d10cbd.png' %}") no-repeat center;
+            background-size: cover;
+            cursor: pointer;
+        }
+    </style>
+</head>
+  <body>
+    <div class="main-container">
+      <div class="status-bar-iphone">
+        <div class="time-iphone"><span class="time">9:41</span></div>
+        <div class="notch"><div class="notch-1"></div></div>
+        <div class="cellular-wifi-battery-iphone">
+          <div class="battery"></div>
+          <div class="wifi"></div>
+          <div class="cellular-connection"></div>
+        </div>
+      </div>
+      <span class="todo">TO DO</span>
+      <div class="container">
+
+
+        <div class="todo-section" id="club-section">
+            <div class="todo-category">
+                동아리
+                <button onclick="addInputField('club-section')">+</button>
+            </div>
+        </div>
+
+        <div class="todo-section" id="volunteer-section">
+            <div class="todo-category">
+                봉사
+                <button onclick="addInputField('volunteer-section')">+</button>
+            </div>
+        </div>
+
+        <div class="todo-section" id="competition-section">
+            <div class="todo-category">
+                대회/공모전
+                <button onclick="addInputField('competition-section')">+</button>
+            </div>
+        </div>
+
+        <div class="todo-section" id="class-section">
+            <div class="todo-category">
+                학교 강의
+                <button onclick="addInputField('class-section')">+</button>
+            </div>
+        </div>
+    </div>
+
+      
+     
+      <div class="under">
+        <div class="home-icon" onclick="window.location.href='/main/';"></div>
+        <div class="chart" onclick="window.location.href='/chart/';"></div>
+        <div class="strategic-plan" onclick="window.location.href='/portfolio/';"></div> <!-- 클릭 시 포트폴리오 페이지로 이동 -->
+        <div class="choice"></div> <div class = "checklist"></div>
+      </div>
+    </div>
+    <!-- Generated by Codia AI - https://codia.ai/ -->
+    <script>
+        // 새로운 입력 필드 생성 함수
+        function addInputField(sectionId) {
+            const section = document.getElementById(sectionId);
+
+            // 새로운 입력 필드와 추가 버튼 및 삭제 버튼을 담은 div 생성
+            const inputContainer = document.createElement('div');
+            inputContainer.className = 'input-container';
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.placeholder = '새 할 일 입력';
+
+            const addButton = document.createElement('button');
+            addButton.textContent = '추가';
+            addButton.onclick = function() {
+                addTodo(sectionId, input);
+            };
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = '삭제';
+            deleteButton.className = 'delete-button';
+            deleteButton.onclick = function() {
+                inputContainer.remove();
+            };
+
+            // 입력 필드, 추가 버튼, 삭제 버튼을 div에 추가
+            inputContainer.appendChild(input);
+            inputContainer.appendChild(addButton);
+            inputContainer.appendChild(deleteButton);
+            inputContainer.style.position = 'relative';
+            inputContainer.style.left = '30px';  // 오른쪽으로 30px 이동
+
+            // 섹션에 입력 필드 컨테이너 추가
+            section.appendChild(inputContainer);
+        }
+
+        // 할 일 추가 함수
+        function addTodo(sectionId, input) {
+            const section = document.getElementById(sectionId);
+            const task = input.value.trim();
+
+            if (task) {
+                // 새 할 일 항목 생성
+                const todoItem = document.createElement('div');
+                todoItem.className = 'todo-item';
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+
+                const label = document.createElement('label');
+                label.textContent = task;
+
+                // 할 일 항목을 섹션에 추가
+                todoItem.appendChild(checkbox);
+                todoItem.appendChild(label);
+                section.appendChild(todoItem);
+
+                // 입력 필드 초기화 및 제거
+                input.value = '';
+                input.parentElement.remove();
+            }
+        }
+    </script>
+</body>
+</html>
