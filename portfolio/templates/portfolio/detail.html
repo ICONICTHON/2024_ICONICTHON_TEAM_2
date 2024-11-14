@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ portfolio.title }} - Portfolio Detail</title>
+</head>
+<body>
+    <h1>{{ portfolio.title }}</h1>
+    <p>종류: {{ portfolio.kind }}</p>
+    <p>시작 시간: {{ portfolio.starttime|date:"Y-m-d H:i" }}</p>
+    <p>종료 시간: {{ portfolio.finishtime|date:"Y-m-d H:i" }}</p>
+    <p>이름: {{ portfolio.name }}</p>
+    <p>내용: {{ portfolio.body }}</p>
+</body>
+</html>

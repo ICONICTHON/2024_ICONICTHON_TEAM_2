@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Portfolio</title>
+</head>
+<body>
+    <h1>Create Portfolio</h1>
+    <form method="POST" action="{% url "portfolio:create" %}">
+        {% csrf_token %}
+        <label for="kind">종류:</label>
+        <select name="kind" id="kind">
+            <option value="club">동아리</option>
+            <option value="volunteer">봉사</option>
+            <option value="competition">공모전/대회</option>
+            <option value="lecture">학교강의</option>
+        </select><br>
+
+        <label for="title">제목:</label>
+        <input type="text" name="title" id="title" required><br>
+
+        <label for="starttime">시작 시간:</label>
+        <input type="datetime-local" name="starttime" id="starttime" required><br>
+
+        <label for="finishtime">종료 시간:</label>
+        <input type="datetime-local" name="finishtime" id="finishtime" required><br>
+
+        <label for="name">이름:</label>
+        <input type="text" name="name" id="name" required><br>
+
+        <label for="body">내용:</label>
+        <textarea name="body" id="body" required></textarea><br>
+
+        <button type="submit">저장</button>
+    </form>
+</body>
+</html>

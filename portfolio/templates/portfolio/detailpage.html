@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio List</title>
+</head>
+<body>
+    <h1>Portfolio List</h1>
+    <div class="portfolio-container">
+        {% for portfolio in portfolios %}
+        <div class="portfolio-card">
+            <h2>{{ portfolio.title }}</h2>
+            <p>기간: {{ portfolio.starttime|date:"Y-m-d" }} ~ {{ portfolio.finishtime|date:"Y-m-d" }}</p>
+
+            <p>
+                {% if portfolio.kind == "volunteer" %}
+                    봉사 - 기관명: {{ portfolio.name }}
+                {% elif portfolio.kind == "club" %}
+                    동아리 - 동아리명: {{ portfolio.name }}
+                {% elif portfolio.kind == "competition" %}
+                    대회/공모전 - 기관명: {{ portfolio.name }}
+                {% elif portfolio.kind == "lecture" %}
+                    학교강의 - 수업명: {{ portfolio.name }}
+                {% else %}
+                    기타: {{ portfolio.name }}
+                {% endif %}
+            </p>
+
+            <a href="{% url "portfolio:detail" id=portfolio.id %}">Details</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
