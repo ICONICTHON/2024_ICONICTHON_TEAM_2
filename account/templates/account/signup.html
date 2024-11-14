@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Log - 회원가입</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=ABeeZee:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ultra:wght@400&display=swap" />
+    <link rel="stylesheet" href="{% static 'css/account/signup.css' %}">
+    <style>
+        /* 이미지 경로가 필요한 스타일을 HTML 템플릿에서 인라인으로 추가 */
+        
+        .notch-1 {
+            background: url("{% static 'img/f9358ade-fc06-47e3-a21a-154850a2cd61.png' %}") no-repeat center;
+            background-size: cover;
+        }
+        
+        .battery {
+            background: url("{% static 'img/f5ddd2d2-b73b-40e2-a3d9-211ce5677f03.png' %}") no-repeat center;
+            background-size: 100% 100%;
+        }
+        
+        .wifi {
+            background: url("{% static 'img/38ee2535-7605-40ff-b06a-7f620d0d0adf.png' %}") no-repeat center;
+            background-size: 100% 100%;
+        }
+        
+        .cellular-connection {
+            background: url("{% static 'img/e83da94d-4f3b-4841-b6cc-f489ea9b87aa.png' %}") no-repeat center;
+            background-size: 100% 100%;
+        }
+        
+        .rectangle-6 {
+            background: url("{% static 'img/95df9065-6a65-4b48-9331-cbeab6857716.png' %}") no-repeat center;
+            background-size: cover;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="status-bar-iphone">
+            <div class="time-iphone"><span class="time">9:41</span></div>
+            <div class="notch"><div class="notch-1"></div></div>
+            <div class="cellular-wifi-battery">
+                <div class="battery"></div>
+                <div class="wifi"></div>
+                <div class="cellular-connection"></div>
+            </div>
+        </div>
+        <span class="campus-log">CAMPUS LOG</span>
+        <span class="campus-log-2">sign up</span>
+
+        <form action="{% url 'account:signup' %}" method="POST">
+            {% csrf_token %}
+            <div class="rectangle">
+                <input type="text" name="name" class="input-name" placeholder="이름을 입력해주세요." required>
+            </div>
+            <div class="rectangle-3">
+                <input type="text" name="username" class="input-field" placeholder="아이디를 입력해주세요." required>
+            </div>
+            <div class="rectangle-4">
+                <input type="password" name="password" class="input-field-5" placeholder="비밀번호를 입력해주세요." required>
+            </div>
+            <button class="button" style="background-color: #004779; color: white; border-radius: 40px;"><span class="register">Register</span></button>
+
+            <div class="rectangle-6"></div>
+        </form>
+    </div>
+</body>
+</html>

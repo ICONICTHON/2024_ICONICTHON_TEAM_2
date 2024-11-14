@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{% static 'css/globals.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styleguide.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/account/style.css' %}" />
+    <title>Campus Log - 로그인</title>
+  </head>
+  <body>
+    <div class="start-page">
+        <div class="content-container">
+            <div class="center-container">
+                </div>
+      <div class="div">
+        <div class="overlap">
+          <form action="{% url 'account:login' %}" method="POST">
+            {% csrf_token %}
+            <div class="overlap-group">
+              <input type="text" name="username" placeholder="아이디를 입력해주세요." class="text-wrapper" required />
+            </div>
+            <div class="div-wrapper">
+              <input type="password" name="password" placeholder="비밀번호를 입력해주세요." class="text-wrapper" required />
+            </div>
+            <div class="overlap-2">
+              <!-- 로그인 버튼 -->
+<button type="submit" class="rectangle" style="border: none; outline: none; color: white; background-color: #2F5D9E; font-size: 17px; z-index: 1;">로그인</button>
+              
+              <!-- 회원가입 이미지 버튼 -->
+              <a href="{% url 'account:signup' %}">
+                <img class="image" src="https://c.animaapp.com/Zluc8iKV/img/----.png" alt="회원가입 이미지" style="position: relative; z-index: 100;" />
+              </a>
+              
+              <img class="element" src="{% static 'img/----1-.png' %}" alt="Element" />
+            </div>
+          </form>
+        </div>
+        <div class="center-container">
+            <img class="CAMPUS-LOG" src="{% static 'img/campus-log.png' %}" alt="Campus Log" />
+        </div>
+        <div class="status-bar-iphone">
+          <div class="time-iphone">
+            <div class="time">9:41</div>
+          </div>
+          <svg class="battery" width="28" height="13" viewBox="0 0 28 13" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 285px; margin-top: 20px;">
+            <rect opacity="0.35" x="1.17197" y="0.5" width="24" height="12" rx="3" stroke="white" />
+            <path opacity="0.4" d="M26.672 4.66666V8.66666C27.4767 8.32788 28 7.53979 28 6.66666C28 5.79352 27.4767 5.00543 26.672 4.66666Z" fill="white" />
+            <rect x="2.67197" y="2" width="21" height="9" rx="1.33333" fill="white" />
+            </svg>
+          <div class="cellular-wifi">
+            <img class="wifi" src="https://c.animaapp.com/Zluc8iKV/img/wifi.svg" />
+            <img class="cellular-connection" src="https://c.animaapp.com/Zluc8iKV/img/cellular-connection.svg" />
+          </div>
+          <img class="notch" src="{% static 'img/notch.png' %}" alt="Notch" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
