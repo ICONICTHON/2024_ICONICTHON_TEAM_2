@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics</title>
+    <link rel="stylesheet" href="{% static 'css/chart/style.css' %}">
+    <style>
+        /* 이미지 경로 수정 */
+        .notch-1 {
+            background: url("{% static 'img/f9358ade-fc06-47e3-a21a-154850a2cd61.png' %}") no-repeat center;
+            background-size: cover;
+        }
+        .battery {
+            background: url("{% static 'img/40393129-3b18-4179-8243-1ebe13b5f9d0.png' %}") no-repeat center;
+            background-size: 100% 100%;
+        }
+        .wifi {
+            background: url("{% static 'img/9a0d1236-ad68-46e7-b8c9-4b866106a2d5.png' %}") no-repeat center;
+            background-size: 100% 100%;
+        }
+        .cellular-connection {
+            background: url("{% static 'img/50c15209-aa2f-4ea6-b38a-fc300511d350.png' %}") no-repeat center;
+            background-size: 100% 100%;
+        }
+        .home-icon {
+            background: url("{% static 'img/50861fc5e2701077796603a025040611c2ff5bfe.png' %}") no-repeat center;
+            background-size: cover;
+            cursor: pointer;
+        }
+        .chart {
+            background: url("{% static 'img/0cccf815bfede24e421667b6882039b0afca9793.png' %}") no-repeat center;
+            background-size: cover;
+            cursor: pointer;
+        }
+        .strategic-plan {
+            background: url("{% static 'img/9370df99ff8609a0e6c544d2b605213759de7bbf.png' %}") no-repeat center;
+            background-size: cover;
+            cursor: pointer;
+        }
+        .checklist {
+            background: url("{% static 'img/560e504afb082b84464c704bcdf91fcda7d10cbd.png' %}") no-repeat center;
+            background-size: cover;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- 상단 상태바 -->
+        <div class="status-bar-iphone">
+            <span class="time">9:41</span>
+            <div class="notch"><div class="notch-1"></div></div>
+            <div class="cellular-wifi-battery-iphone">
+                <div class="battery"></div>
+                <div class="wifi"></div>
+          <div class="cellular-connection"></div>
+
+        </div>
+        </div>
+        
+        <!-- 제목과 차트 -->
+        <h1 class="title">Statistics</h1>
+        <div class="chart">
+            <img src="{% static 'img/5c7c10dfbc6dd2d23ebfe43e265021dc3141c8bf.png' %}" alt="Chart Image">
+        </div>
+
+        <!-- 범례 -->
+        <div class="legend">
+            <div><span class="legend-box" style="background-color: #D4E6F1;"></span> 동아리</div>
+            <div><span class="legend-box" style="background-color: #FADBD8;"></span> 봉사</div>
+            <div><span class="legend-box" style="background-color: #BB8FCE;"></span> 수업 활동</div>
+            <div><span class="legend-box" style="background-color: #7D3C98;"></span> 대회/공모전</div>
+        </div>
+
+        <!-- 하단 네비게이션 바 -->
+        <div class="bottom-nav">
+            <div class="nav-item" onclick="window.location.href='/main/';">
+                <img src="{% static 'img/50861fc5e2701077796603a025040611c2ff5bfe.png' %}" alt="Signal Icon">
+            </div>
+            <div class="nav-item" onclick="window.location.href='/portfolio/';">
+                <img src="{% static 'img/9370df99ff8609a0e6c544d2b605213759de7bbf.png' %}" alt="Portfolio Icon">
+            </div>
+            <div class="nav-item" onclick="window.location.href='/todo/';">
+                <img src="{% static 'img/560e504afb082b84464c704bcdf91fcda7d10cbd.png' %}" alt="Checklist Icon">
+            </div>
+            <div class="nav-item" onclick="window.location.href='/chart/';">
+                <img src="{% static 'img/0cccf815bfede24e421667b6882039b0afca9793.png' %}" alt="Chart Icon">
+            </div>
+            
+            
+        </div>
+    </div>
+</body>
+</html>

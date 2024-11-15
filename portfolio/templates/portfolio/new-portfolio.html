@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>활동 추가하기</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=NEXON+Lv2+Gothic:wght@400;500;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=ABeeZee:wght@400&display=swap" />
+    <link rel="stylesheet" href="{% static 'css/newp.css' %}">
+    <style>
+        /* 이미지 경로 수정 */
+        .notch-1 {
+            background: url("{% static 'img/f9358ade-fc06-47e3-a21a-154850a2cd61.png' %}") no-repeat center;
+            background-size: cover;
+        }
+        .battery {
+            background: url("{% static 'img/40393129-3b18-4179-8243-1ebe13b5f9d0.png' %}") no-repeat center;
+            background-size: 100% 100%;
+        }
+        .wifi {
+            background: url("{% static 'img/9a0d1236-ad68-46e7-b8c9-4b866106a2d5.png' %}") no-repeat center;
+            background-size: 100% 100%;
+        }
+        .cellular-connection {
+            background: url("{% static 'img/50c15209-aa2f-4ea6-b38a-fc300511d350.png' %}") no-repeat center;
+            background-size: 100% 100%;
+        }
+        .home-icon {
+            background: url("{% static 'img/50861fc5e2701077796603a025040611c2ff5bfe.png' %}") no-repeat center;
+            background-size: cover;
+            cursor: pointer;
+        }
+        .chart {
+            background: url("{% static 'img/0cccf815bfede24e421667b6882039b0afca9793.png' %}") no-repeat center;
+            background-size: cover;
+            cursor: pointer;
+        }
+        .strategic-plan {
+            background: url("{% static 'img/9370df99ff8609a0e6c544d2b605213759de7bbf.png' %}") no-repeat center;
+            background-size: cover;
+            cursor: pointer;
+        }
+        .checklist {
+            background: url("{% static 'img/560e504afb082b84464c704bcdf91fcda7d10cbd.png' %}") no-repeat center;
+            background-size: cover;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="status-bar-iphone">
+            <div class="time-iphone"><span class="time">9:41</span></div>
+            <div class="notch"><div class="notch-1"></div></div>
+            <div class="cellular-wifi-battery">
+                <div class="battery"></div>
+                <div class="wifi"></div>
+                <div class="cellular-connection"></div>
+            </div>
+        </div>
+
+        <span class="add-activity">활동 추가하기</span>
+        
+        <form method="POST" action="{% url 'portfolio:create' %}">
+            {% csrf_token %}
+            
+            <!-- 활동 구분 -->
+            <label for="kind" class="activity-type">활동 구분</label>
+            <div class="rectangle">
+                <select name="kind" id="kind" class="select-category" required>
+                    <option value="">카테고리를 선택해주세요</option>
+                    <option value="club">동아리</option>
+                    <option value="volunteer">봉사</option>
+                    <option value="competition">공모전/대회</option>
+                    <option value="lecture">학교강의</option>
+                </select>
+            </div>
+
+            <!-- 활동 제목 -->
+            <label for="title" class="activity-title">활동 제목</label>
+            <div class="rectangle-2">
+                <input type="text" name="title" id="title" class="input-title" placeholder="제목을 입력해주세요" required>
+            </div>
+
+            <!-- 활동 기간 -->
+            <label class="activity-period">활동 기간</label>
+            <div class="flex-row-bf">
+                <input type="datetime-local" name="starttime" id="starttime" class="rectangle-3" required>
+                <input type="datetime-local" name="finishtime" id="finishtime" class="rectangle-4" required>
+            </div>
+
+            <!-- 기관/수업/동아리명 -->
+            <label for="name" class="organization-class-club">기관/수업/동아리명</label>
+            <div class="rectangle-6">
+                <input type="text" name="name" id="name" class="input-placeholder" placeholder="기관명을 입력해주세요" required>
+            </div>
+
+            <!-- 활동 내용 -->
+            <label for="body" class="activity-content">활동 내용</label>
+            <div class="rectangle-7">
+                <textarea name="body" id="body" class="input-placeholder-8" placeholder="활동 내용을 입력해주세요" required></textarea>
+            </div>
+
+            <!-- 저장 버튼 -->
+            <div class="back" onclick="redirectToPortfolio();">
+                <div class="check-mark"></div>
+            </div>
+            </div>
+        </form>
+
+        <!-- 하단 네비게이션 바 -->
+        <div class="under">
+            <div class="under-16">
+                <div class="choice" onclick="window.location.href='/portfolio/';">
+                    <div class="choice-17">
+                        <div class="strategic-plan">
+                            <div class="strategic-plan-18"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart" onclick="window.location.href='/chart/';">
+                    <div class="chart-19"></div>
+                </div>
+                <div class="home-icon" onclick="window.location.href='/main/';">
+                    <div class="home-icon-silhouette-1a"></div>
+                </div>
+                <div class="checklist" onclick="window.location.href='/todo/';">
+                    <div class="checklist-1b"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+        function redirectToPortfolio() {
+            window.location.href = "/portfolio/"; // 이동할 경로를 "/portfolio/"로 설정
+        }
+    </script>
+</body>
+</html>
